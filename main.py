@@ -58,13 +58,13 @@ def main():
     all_videos: list[dict] = []
 
     if args.mode in ("popular", "both"):
-        print("\n📈 正在爬取综合热门...")
+        print("\n[热门] 正在爬取综合热门...")
         popular = get_popular_all_pages(max_pages=args.pages, ps=args.ps)
         print(f"  获取 {len(popular)} 条")
         all_videos.extend(popular)
 
     if args.mode in ("ranking", "both"):
-        print("\n🏆 正在爬取排行榜...")
+        print("\n[排行] 正在爬取排行榜...")
         ranking = get_ranking_all_pages(rid=args.rid, max_pages=args.pages, ps=args.ps)
         print(f"  获取 {len(ranking)} 条")
         all_videos.extend(ranking)
@@ -93,7 +93,7 @@ def main():
 
     # 预览 Top 5
     print("\n" + "=" * 50)
-    print("  🔥 Top 5")
+    print("  Top 5")
     print("=" * 50)
     for i, v in enumerate(unique[:5], 1):
         wan = v["播放量"] / 10000
